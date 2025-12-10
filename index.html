@@ -38,7 +38,6 @@
             position: relative;
         }
 
-        /* Background Particles */
         #particles-js {
             position: fixed;
             width: 100%;
@@ -48,7 +47,6 @@
             left: 0;
         }
 
-        /* Custom Cursor */
         .cursor {
             position: fixed;
             width: 20px;
@@ -76,7 +74,6 @@
             background-color: rgba(16, 185, 129, 0.3);
         }
 
-        /* Navigation */
         .navbar {
             position: fixed;
             top: 0;
@@ -154,7 +151,6 @@
             left: 0;
         }
 
-        /* Main Content */
         .container {
             display: flex;
             width: 500vw;
@@ -192,7 +188,6 @@
             transform: translateY(0);
         }
 
-        /* Hero Section */
         #intro {
             background: radial-gradient(circle at 30% 30%, rgba(139, 92, 246, 0.1) 0%, transparent 50%);
         }
@@ -283,7 +278,6 @@
             transform: translateY(-3px);
         }
 
-        /* Section Titles */
         .section-title {
             font-family: 'Anton', sans-serif;
             font-size: clamp(3rem, 8vw, 6rem);
@@ -304,7 +298,6 @@
             background: var(--accent-color);
         }
 
-        /* Cards */
         .card {
             background: var(--card-bg);
             backdrop-filter: blur(10px);
@@ -322,7 +315,6 @@
             border-color: var(--accent-color);
         }
 
-        /* Skills Section */
         .skills-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -350,7 +342,6 @@
             color: var(--accent-color);
         }
 
-        /* Projects Section */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -399,7 +390,6 @@
             transform: translateY(-3px);
         }
 
-        /* Contact Section */
         #contact .card {
             text-align: center;
         }
@@ -441,7 +431,6 @@
             font-weight: 600;
         }
 
-        /* Scroll Indicator */
         .scroll-indicator {
             position: fixed;
             right: 2rem;
@@ -488,7 +477,6 @@
             opacity: 1;
         }
 
-        /* Footer */
         footer {
             position: fixed;
             bottom: 0;
@@ -503,7 +491,6 @@
             font-size: 0.9rem;
         }
 
-        /* Animations */
         @keyframes fade-up {
             to { 
                 opacity: 1; 
@@ -516,7 +503,6 @@
             50% { transform: scale(1.05); }
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .navbar {
                 padding: 1rem;
@@ -569,7 +555,6 @@
 
     <div class="cursor"></div>
     
-    <!-- Background Particles -->
     <div id="particles-js"></div>
 
     <nav class="navbar">
@@ -583,7 +568,6 @@
         </div>
     </nav>
     
-    <!-- Scroll Indicator -->
     <div class="scroll-indicator">
         <div class="scroll-dot active" data-section="Home" data-index="0"></div>
         <div class="scroll-dot" data-section="Skills" data-index="1"></div>
@@ -593,7 +577,6 @@
     </div>
     
     <main class="container">
-        <!-- 1. Intro / Hero Section -->
         <section id="intro">
             <div class="section-content visible">
                 <div class="hero-content">
@@ -611,7 +594,6 @@
             </div>
         </section>
 
-        <!-- 2. Skills Section -->
         <section id="skills">
             <div class="section-content">
                 <h2 class="section-title">My Skills</h2>
@@ -636,7 +618,6 @@
             </div>
         </section>
 
-        <!-- 3. Projects Section -->
         <section id="projects">
             <div class="section-content">
                 <h2 class="section-title">My Projects</h2>
@@ -671,8 +652,7 @@
             </div>
         </section>
 
-        <!-- 4. About Section -->
-        <section id="about">
+       <section id="about">
             <div class="section-content">
                 <h2 class="section-title">My Philosophy</h2>
                 <div class="card">
@@ -687,7 +667,6 @@
             </div>
         </section>
 
-        <!-- 5. Contact Section -->
         <section id="contact">
             <div class="section-content">
                 <h2 class="section-title">Get In Touch</h2>
@@ -719,14 +698,10 @@
         </section>
     </main>
 
-    <!-- <footer>
-        <p>© 2023 Madhav Swami. Crafted with <i class="fas fa-heart" style="color: #ef4444;"></i> and <i class="fas fa-code" style="color: var(--accent-color);"></i></p>
-    </footer> -->
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Initialize Particles.js
             particlesJS("particles-js", {
                 particles: {
                     number: { value: 80, density: { enable: true, value_area: 800 } },
@@ -762,7 +737,6 @@
                 retina_detect: true
             });
 
-            // Custom Cursor
             const cursor = document.querySelector('.cursor');
             window.addEventListener('mousemove', (e) => {
                 cursor.style.transform = `translate(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%))`;
@@ -776,7 +750,6 @@
                 cursor.classList.remove('clicked');
             });
 
-            // Magnetic Effect for Buttons
             const magneticElements = document.querySelectorAll('.btn, .project-link, .contact-link');
             magneticElements.forEach(el => {
                 el.addEventListener('mousemove', function(e) {
@@ -794,7 +767,6 @@
                 });
             });
 
-            // Horizontal Scroll Navigation
             const container = document.querySelector('.container');
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('.nav-link');
@@ -802,10 +774,8 @@
             const totalSections = sections.length;
             let currentSection = 0;
             
-            // Set container width based on number of sections
             container.style.width = `${totalSections * 100}vw`;
             
-            // Navigation click handler
             navLinks.forEach(link => {
                 link.addEventListener('click', (e) => {
                     e.preventDefault();
@@ -814,7 +784,6 @@
                 });
             });
             
-            // Scroll dots click handler
             scrollDots.forEach(dot => {
                 dot.addEventListener('click', () => {
                     const index = parseInt(dot.getAttribute('data-index'));
@@ -822,7 +791,6 @@
                 });
             });
             
-            // Function to go to specific section
             function goToSection(index) {
                 if (index < 0) index = 0;
                 if (index >= totalSections) index = totalSections - 1;
@@ -831,30 +799,24 @@
                 const translateX = -index * 100;
                 container.style.transform = `translateX(${translateX}vw)`;
                 
-                // Update active states
                 updateActiveStates(index);
                 
-                // Show section content with animation
                 const sectionContent = sections[index].querySelector('.section-content');
                 sectionContent.classList.add('visible');
             }
             
-            // Update active navigation and dots
             function updateActiveStates(index) {
-                // Update nav links
                 navLinks.forEach(link => {
                     link.classList.remove('active');
                 });
                 navLinks[index].classList.add('active');
                 
-                // Update scroll dots
                 scrollDots.forEach(dot => {
                     dot.classList.remove('active');
                 });
                 scrollDots[index].classList.add('active');
             }
             
-            // Keyboard navigation
             document.addEventListener('keydown', (e) => {
                 if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
                     goToSection(currentSection + 1);
@@ -863,7 +825,6 @@
                 }
             });
             
-            // Mouse wheel navigation
             let isScrolling = false;
             document.addEventListener('wheel', (e) => {
                 if (isScrolling) return;
@@ -881,7 +842,6 @@
                 }, 800);
             });
             
-            // Touch swipe for mobile
             let startX = 0;
             let startY = 0;
             
@@ -899,13 +859,10 @@
                 const diffX = startX - endX;
                 const diffY = startY - endY;
                 
-                // Check if it's a horizontal swipe (more horizontal than vertical)
                 if (Math.abs(diffX) > Math.abs(diffY)) {
                     if (diffX > 50) {
-                        // Swipe left - go to next section
                         goToSection(currentSection + 1);
                     } else if (diffX < -50) {
-                        // Swipe right - go to previous section
                         goToSection(currentSection - 1);
                     }
                 }
@@ -914,7 +871,6 @@
                 startY = 0;
             }, { passive: true });
             
-            // Hero text animation
             const heroTitle = document.querySelector('.hero-content h1');
             const text = heroTitle.textContent;
             heroTitle.innerHTML = '';
@@ -928,7 +884,6 @@
                 heroTitle.appendChild(span);
             }
             
-            // Initialize first section
             updateActiveStates(0);
         });
     </script>
