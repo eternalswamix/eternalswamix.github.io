@@ -83,7 +83,7 @@ body:hover .cursor-outline {
     top: 0;
     left: 0;
     width: 100%;
-    padding: 1.5rem 5%;
+    padding: 0.5rem 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -165,7 +165,7 @@ main {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    padding-top: 100px;
+    padding-top: 60px;
     /* Clear fixed navbar */
 }
 
@@ -716,7 +716,7 @@ body.resume-page {
     width: 100vw !important; /* Force full viewport width */
     max-width: none !important; /* Break out of generic section constraints */
     height: 100vh;
-    padding: 85px 0 0 !important;
+    padding: 5px 0 0 !important;
     margin: 0 !important;
     display: flex;
     flex-direction: column;
