@@ -1,0 +1,154 @@
+{
+  "theme": {
+    "accent": "#ea580c",
+    "accentHover": "#fdba74"
+  },
+  "profile": {
+    "name": "Madhav Swami",
+    "brand": "EternalSwamiX",
+    "role": "Full Stack Developer",
+    "location": "Bikaner",
+    "taglineRoles": ["Full Stack Developer", "Backend Developer", "API Builder", "Python Developer"],
+    "email": "eternalswamix@gmail.com",
+    "phone": "+91 8503042986",
+    "website": "eternalswamix.github.io",
+    "avatar": "favicon.png",
+    "socials": [
+      { "label": "Email", "url": "mailto:eternalswamix@gmail.com", "icon": "fas fa-envelope" },
+      { "label": "GitHub", "url": "https://github.com/eternalswamix", "icon": "fab fa-github" },
+      { "label": "LinkedIn", "url": "https://www.linkedin.com/in/madhav-swami/", "icon": "fab fa-linkedin-in" },
+      { "label": "Twitter", "url": "https://twitter.com/eternalswamix", "icon": "fab fa-twitter" },
+      { "label": "Instagram", "url": "https://instagram.com/eternalswamix", "icon": "fab fa-instagram" }
+    ]
+  },
+  "about": {
+    "subtitle": "Backend Developer, Full Stack Developer & API Builder",
+    "summary": "Aspiring Backend and Full Stack Developer focused on Python, Flask, SQL, REST APIs, and responsive frontend experiences. I enjoy turning ideas into working systems with clean architecture, practical interfaces, and reliable data flows.",
+    "details": [
+      { "label": "Website", "value": "eternalswamix.github.io" },
+      { "label": "Phone", "value": "+91 8503042986" },
+      { "label": "City", "value": "Bikaner, Rajasthan" },
+      { "label": "Degree", "value": "Code to Career Program" },
+      { "label": "Email", "value": "eternalswamix@gmail.com" },
+      { "label": "Freelance", "value": "Available" }
+    ]
+  },
+  "logoLoop": [
+    { "label": "Python", "icon": "fab fa-python" },
+    { "label": "JavaScript", "icon": "fab fa-js" },
+    { "label": "React", "icon": "fab fa-react" },
+    { "label": "Flask", "icon": "fas fa-flask" },
+    { "label": "SQL", "icon": "fas fa-database" },
+    { "label": "Git", "icon": "fab fa-git-alt" },
+    { "label": "GitHub", "icon": "fab fa-github" },
+    { "label": "APIs", "icon": "fas fa-code" }
+  ],
+  "skills": [
+    { "name": "Python", "level": 85 },
+    { "name": "Flask & REST APIs", "level": 82 },
+    { "name": "React & JavaScript", "level": 78 },
+    { "name": "SQL & Databases", "level": 75 },
+    { "name": "HTML, CSS & Responsive UI", "level": 88 },
+    { "name": "Git & GitHub", "level": 80 }
+  ],
+  "activity": {
+    "githubUsername": "eternalswamix",
+    "leetcodeUsername": "eternalswamix"
+  },
+  "interests": [
+    { "title": "Backend APIs", "icon": "fas fa-server", "color": "#ffbb2c" },
+    { "title": "Web Development", "icon": "fas fa-code", "color": "#5578ff" },
+    { "title": "Databases", "icon": "fas fa-database", "color": "#e80368" },
+    { "title": "System Design", "icon": "fas fa-layer-group", "color": "#1c7d32" },
+    { "title": "Debugging", "icon": "fas fa-bug", "color": "#28a745" },
+    { "title": "Analytics", "icon": "fas fa-chart-line", "color": "#f1081f" },
+    { "title": "Automation", "icon": "fas fa-terminal", "color": "#47aeff" },
+    { "title": "Responsive UI", "icon": "fas fa-mobile-screen", "color": "#ffc107" }
+  ],
+  "resume": {
+    "summary": {
+      "title": "Madhav Swami",
+      "text": "Full Stack Developer building APIs, dashboards, and practical web systems with Python, Flask, SQL, and modern frontend tools.",
+      "items": ["Bikaner, Rajasthan", "+91 8503042986", "eternalswamix@gmail.com"]
+    },
+    "focus": {
+      "title": "Backend Engineering",
+      "period": "Current",
+      "text": "REST endpoints, request handling, authentication logic, JSON APIs, and database-backed workflows."
+    },
+    "experience": [
+      {
+        "title": "Intern",
+        "period": "October 2025 - Present",
+        "company": "Axilivo Technologies Pvt. Ltd., Bikaner",
+        "items": [
+          "Developed backend features and REST endpoints using Python and Flask.",
+          "Integrated internal and external APIs for data workflows.",
+          "Worked on full-stack features, debugging tasks, and GitHub-based project updates."
+        ]
+      },
+      {
+        "title": "Code to Career Program",
+        "period": "Ongoing",
+        "company": "",
+        "items": ["Strengthening backend engineering, SQL, API design, frontend integration, and production-ready project habits."]
+      }
+    ]
+  },
+  "projects": [
+  {
+    "title": "PunchDesk",
+    "tagline": "Attendance & Payroll Management System",
+    "category": "tool",
+    "icon": "fas fa-clock",
+    "image": "https://media.licdn.com/dms/image/v2/D4E2DAQEUlOSJoWinQw/profile-treasury-image-shrink_8192_8192/B4EZ5pS52DHcAQ-/0/1779883024004?e=1783508400&v=beta&t=m3ARzPmR-XpCKLd4PsY_NZ9w_62J_iVnELFn8_oMf98",
+    "github": "https://github.com/eternalswamix"
+  },
+  {
+    "title": "Evyorre",
+    "tagline": "Premium Business & Portfolio Website",
+    "category": "web",
+    "icon": "fas fa-desktop",
+    "image": "favicon.png",
+    "github": "https://github.com/eternalswamix"
+  },
+  {
+    "title": "PDF Chat Assistant",
+    "tagline": "AI Document Q&A System",
+    "category": "tool",
+    "icon": "fas fa-file-pdf",
+    "image": "favicon.png",
+    "github": "https://github.com/eternalswamix/AskPDF"
+  },
+  {
+    "title": "AI Resume Analyzer",
+    "tagline": "ATS Resume Analysis Tool",
+    "category": "tool",
+    "icon": "fas fa-file-alt",
+    "image": "favicon.png",
+    "github": "https://github.com/eternalswamix/ResumeRadar"
+  },
+  {
+    "title": "JD2Q",
+    "tagline": "AI Job Description to Interview Q&A Generator",
+    "category": "tool",
+    "icon": "fas fa-briefcase",
+    "image": "favicon.png",
+    "github": "https://github.com/eternalswamix/JD2Q"
+  },
+  {
+    "title": "Madhav Assistant",
+    "tagline": "AI Personal Chat & Voice Assistant",
+    "category": "tool",
+    "icon": "fas fa-robot",
+    "image": "favicon.png",
+    "github": "https://github.com/eternalswamix"
+  }
+  ],
+  "contact": [
+    { "title": "Address", "value": "Bikaner, Rajasthan, India", "icon": "fas fa-location-dot" },
+    { "title": "Social Profiles", "value": "GitHub, LinkedIn, Twitter, Instagram", "icon": "fas fa-share-nodes" },
+    { "title": "Email", "value": "eternalswamix@gmail.com", "icon": "fas fa-envelope" },
+    { "title": "Mobile No.", "value": "+91 8503042986", "icon": "fas fa-phone" }
+  ]
+}

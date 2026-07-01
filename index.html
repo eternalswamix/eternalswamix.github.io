@@ -4,64 +4,2210 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description"
-        content="Portfolio of Madhav Swami (EternalSwamiX) - Full Stack Developer specializing in React, Flask, and building aesthetic digital experiences.">
-    <title>Madhav Swami | Full Stack Developer</title>
-
+    <meta name="description" content="Portfolio of Madhav Swami - Full Stack Developer.">
+    <title>Madhav Swami | EternalSwamiX</title>
     <link rel="icon" type="image/png" href="favicon.png">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&family=Poppins:wght@400;500;600;700&family=Raleway:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+:root {
+    --bg: #040404;
+    --panel: rgba(0, 0, 0, 0.9);
+    --soft: rgba(255, 255, 255, 0.08);
+    --soft-strong: rgba(255, 255, 255, 0.12);
+    --text: #ffffff;
+    --muted: rgba(255, 255, 255, 0.72);
+    --accent-hover: #fce803;
+    --line: rgba(255, 255, 255, 0.16);
+    --panel-border: rgba(255, 255, 255, 0.14);
+}
+
+body[data-theme="light"] {
+    --bg: #f5f5f5;
+    --panel: rgba(255, 255, 255, 0.92);
+    --soft: rgba(0, 0, 0, 0.055);
+    --soft-strong: rgba(0, 0, 0, 0.09);
+    --text: #171717;
+    --muted: rgba(0, 0, 0, 0.64);
+    --accent-hover: #111827;
+    --line: rgba(0, 0, 0, 0.14);
+    --panel-border: rgba(0, 0, 0, 0.12);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    min-height: 100vh;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background:
+        radial-gradient(circle at 50% 42%, rgba(255, 255, 255, 0.032), transparent 34%),
+        radial-gradient(circle at 50% 50%, transparent 34%, rgba(0, 0, 0, 0.72) 100%),
+        var(--bg);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+    background-size: 84px 84px;
+    opacity: 0.22;
+    mask-image: radial-gradient(circle at center, rgba(0, 0, 0, 0.75), transparent 82%);
+}
+
+body[data-theme="light"]::before {
+    background:
+        radial-gradient(circle at 50% 42%, rgba(0, 0, 0, 0.035), transparent 34%),
+        radial-gradient(circle at 50% 50%, transparent 38%, rgba(255, 255, 255, 0.72) 100%),
+        var(--bg);
+}
+
+body[data-theme="light"]::after {
+    background-image:
+        linear-gradient(rgba(0, 0, 0, 0.026) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 0, 0, 0.018) 1px, transparent 1px);
+    opacity: 0.36;
+}
+
+a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Raleway", sans-serif;
+}
+
+.container {
+    width: min(1120px, calc(100% - 32px));
+    margin: 0 auto;
+}
+
+#header {
+    transition: ease-in-out 0.3s;
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    z-index: 997;
+}
+
+#header * {
+    transition: ease-in-out 0.3s;
+}
+
+#header h1 {
+    font-size: clamp(2.4rem, 7vw, 3.75rem);
+    margin: 0;
+    line-height: 1;
+    font-weight: 700;
+    font-family: "Poppins", sans-serif;
+    font-style: italic;
+}
+
+#header h1 a {
+    color: var(--text);
+}
+
+#header h2 {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    margin: 20px 0 0;
+    color: rgba(255, 255, 255, 0.82);
+    font-weight: 400;
+}
+
+body[data-theme="light"] #header h2 {
+    color: rgba(0, 0, 0, 0.72);
+}
+
+#header h2 span {
+    color: var(--accent);
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 6px;
+}
+
+#header .social-links {
+    margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+#header .social-links a {
+    font-size: 16px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+}
+
+#header .social-links a:hover {
+    background: var(--accent);
+}
+
+.theme-toggle {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 1002;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--panel-border);
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--soft);
+    color: var(--text);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+    cursor: pointer;
+    transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+}
+
+.theme-toggle:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: translateY(-2px);
+}
+
+#header.header-top {
+    height: 80px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.9);
+}
+
+body[data-theme="light"] #header.header-top {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--line);
+}
+
+#header.header-top .social-links,
+#header.header-top h2 {
+    display: none;
+}
+
+#header.header-top .theme-toggle {
+    display: inline-flex;
+}
+
+#header.header-top h1 {
+    margin-right: auto;
+    font-size: 36px;
+}
+
+#header.header-top .container {
+    display: flex;
+    align-items: center;
+}
+
+.navbar {
+    padding: 0;
+    margin-top: 35px;
+}
+
+#header.header-top .navbar {
+    margin: 0;
+}
+
+.navbar ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    list-style: none;
+    align-items: center;
+    gap: 35px;
+}
+
+.navbar a {
+    display: flex;
+    align-items: center;
+    position: relative;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.72);
+    white-space: nowrap;
+}
+
+body[data-theme="light"] .navbar a {
+    color: rgba(0, 0, 0, 0.64);
+}
+
+body[data-theme="light"] #header .social-links a {
+    background: rgba(0, 0, 0, 0.07);
+    color: #171717;
+}
+
+.navbar a::before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent);
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+
+.navbar a:hover::before,
+.navbar .active::before {
+    visibility: visible;
+    width: 25px;
+}
+
+.navbar a:hover,
+.navbar .active {
+    color: var(--text);
+}
+
+.mobile-nav-toggle {
+    color: var(--text);
+    font-size: 28px;
+    cursor: pointer;
+    display: none;
+    line-height: 0;
+    border: 0;
+    background: transparent;
+    position: fixed;
+    right: 15px;
+    top: 15px;
+    z-index: 1001;
+}
+
+section {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    top: 140px;
+    bottom: 100%;
+    opacity: 0;
+    transition: ease-in-out 0.4s;
+    z-index: 2;
+    pointer-events: none;
+}
+
+section.section-show {
+    top: 100px;
+    bottom: auto;
+    opacity: 1;
+    padding-bottom: 45px;
+    pointer-events: auto;
+}
+
+section .container {
+    background: var(--panel);
+    border: 1px solid var(--panel-border);
+    padding: 30px;
+    margin-bottom: 28px;
+}
+
+.section-title h2 {
+    font-size: 15px;
+    font-weight: 500;
+    padding: 0;
+    line-height: 1px;
+    margin: 0 0 30px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    font-family: "Poppins", sans-serif;
+}
+
+.section-title h2::after {
+    content: "";
+    width: 120px;
+    height: 1px;
+    display: inline-block;
+    background: var(--accent);
+    margin: 4px 10px;
+}
+
+.section-title p {
+    margin: -15px 0 15px;
+    font-size: clamp(1.8rem, 5vw, 2.2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    color: whitesmoke;
+}
+
+.about-grid,
+.resume-grid,
+.contact-grid,
+.form-row {
+    display: grid;
+    gap: 24px;
+}
+
+.about-grid {
+    grid-template-columns: 320px 1fr;
+}
+
+.profile-frame {
+    min-height: 320px;
+    background: var(--soft);
+    display: grid;
+    place-items: center;
+}
+
+.profile-frame img {
+    width: min(72%, 230px);
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid rgba(255, 255, 255, 0.12);
+}
+
+.about .content h3 {
+    font-weight: 700;
+    font-size: 26px;
+    color: var(--accent);
+    margin-top: 8px;
+}
+
+.details-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.about .content ul {
+    list-style: none;
+    padding: 0;
+    margin: 12px 0;
+}
+
+.about .content ul li {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.about .content ul i {
+    font-size: 12px;
+    color: var(--accent);
+}
+
+.logo-loop-section {
+    overflow: hidden;
+}
+
+.logo-loop {
+    overflow: hidden;
+    mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+.logo-track {
+    display: flex;
+    width: max-content;
+    gap: 14px;
+    animation: logoLoop 24s linear infinite;
+}
+
+.logo-track span {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    min-width: max-content;
+    padding: 0.7rem 1rem;
+    border: 1px solid var(--panel-border);
+    background: var(--soft);
+    color: var(--text);
+    font-family: "Poppins", sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+@keyframes logoLoop {
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+.skills-content {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px 32px;
+}
+
+.skills .progress {
+    height: 60px;
+}
+
+.skills .skill {
+    padding: 10px 0;
+    text-transform: uppercase;
+    display: block;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
+.skills .skill .val {
+    float: right;
+    font-style: normal;
+}
+
+.progress-bar-wrap {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+}
+
+.progress-bar {
+    width: 1px;
+    height: 10px;
+    background-color: var(--accent);
+    border-radius: 5px;
+    transition: width 0.9s;
+}
+
+.activity-card {
+    font-family: "Poppins", sans-serif;
+}
+
+.activity-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+}
+
+.activity-header h2 {
+    margin: 0;
+    color: #58a6ff;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.activity-header h2 i {
+    margin-right: 10px;
+}
+
+.activity-header p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.activity-board {
+    overflow-x: auto;
+    padding: 2px 0 8px;
+}
+
+.activity-source + .activity-source {
+    margin-top: 18px;
+}
+
+.activity-source-title {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    align-items: center;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.activity-source-title span {
+    color: var(--text);
+    font-weight: 700;
+}
+
+.activity-heatmap {
+    display: grid;
+    grid-template-rows: repeat(7, 11px);
+    grid-auto-flow: column;
+    grid-auto-columns: 11px;
+    gap: 4px;
+    min-width: max-content;
+    justify-content: center;
+    padding: 0 8px;
+}
+
+.activity-cell {
+    width: 11px;
+    height: 11px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.activity-cell.github-1 {
+    background: #0e4429;
+}
+
+.activity-cell.github-2 {
+    background: #006d32;
+}
+
+.activity-cell.github-3 {
+    background: #26a641;
+}
+
+.activity-cell.waka-1 {
+    background: #2e1065;
+}
+
+.activity-cell.waka-2 {
+    background: #6d28d9;
+}
+
+.activity-cell.waka-3 {
+    background: #a78bfa;
+}
+
+.activity-cell.leetcode-1 {
+    background: #3b0764;
+}
+
+.activity-cell.leetcode-2 {
+    background: #7e22ce;
+}
+
+.activity-cell.leetcode-3 {
+    background: #c084fc;
+}
+
+.activity-cell.both-1 {
+    background: #075985;
+}
+
+.activity-cell.both-2 {
+    background: #0284c7;
+}
+
+.activity-cell.both-3 {
+    background: #00c2ff;
+}
+
+.activity-legend {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 12px 0 16px;
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.legend-box {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 2px;
+    margin-left: 3px;
+    vertical-align: -1px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.legend-box.github {
+    background: #0e4429;
+}
+
+.legend-box.github.mid {
+    background: #006d32;
+}
+
+.legend-box.github.high {
+    background: #26a641;
+}
+
+.legend-box.both {
+    background: #075985;
+}
+
+.legend-box.both.high {
+    background: #00c2ff;
+}
+
+.legend-box.waka {
+    background: #2e1065;
+}
+
+.legend-box.waka.mid {
+    background: #6d28d9;
+}
+
+.legend-box.waka.high {
+    background: #a78bfa;
+}
+
+.legend-box.leetcode {
+    background: #3b0764;
+}
+
+.legend-box.leetcode.mid {
+    background: #7e22ce;
+}
+
+.legend-box.leetcode.high {
+    background: #c084fc;
+}
+
+.activity-stats {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 18px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+}
+
+.activity-stats span,
+.activity-stats strong {
+    display: block;
+}
+
+.activity-stats span {
+    color: var(--muted);
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.activity-stats strong {
+    color: #22c55e;
+    font-size: 14px;
+}
+
+.activity-stats strong.purple {
+    color: #8b5cf6;
+}
+
+.activity-stats strong.is-unavailable {
+    color: var(--muted);
+}
+
+body[data-theme="light"] .activity-cell {
+    background: rgba(0, 0, 0, 0.08);
+}
+
+.interest-grid,
+.portfolio-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(500px, 0fr));
+    gap: 24px;
+}
+
+.interests .icon-box {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    background: var(--soft);
+    transition: ease-in-out 0.3s;
+    min-height: 82px;
+}
+
+.interests .icon-box i {
+    font-size: 30px;
+    padding-right: 12px;
+}
+
+.interests .icon-box h3 {
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.25;
+    font-size: 16px;
+}
+
+.interests .icon-box:hover {
+    background: var(--soft-strong);
+}
+
+.resume-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.resume .resume-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin: 20px 0;
+}
+
+.resume .resume-item {
+    padding: 0 0 20px 20px;
+    margin-top: -2px;
+    border-left: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.resume .resume-item h4 {
+    line-height: 18px;
+    font-size: 18px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: "Poppins", sans-serif;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.resume .resume-item h5 {
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px 15px;
+    display: inline-block;
+    font-weight: 600;
+    margin: 0 0 10px;
+}
+
+.resume .resume-item ul {
+    padding-left: 20px;
+}
+
+.resume .resume-item li {
+    padding-bottom: 10px;
+}
+
+.resume .resume-item::before {
+    content: "";
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border-radius: 50px;
+    left: -9px;
+    top: 0;
+    background: var(--accent);
+    border: 2px solid var(--accent);
+}
+
+#portfolio-flters {
+    padding: 0;
+    margin: 0 auto 18px;
+    list-style: none;
+    text-align: center;
+}
+
+#portfolio-flters li {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    text-transform: uppercase;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.1);
+    margin: 0 3px 10px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px;
+}
+
+#portfolio-flters li:hover,
+#portfolio-flters li.filter-active {
+    background: var(--accent);
+}
+
+.portfolio-wrap {
+    transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+    position: relative;
+    overflow: hidden;
+    min-height: 320px;
+    background: rgba(0, 0, 0, 0.6);
+    border: 1px solid var(--panel-border);
+}
+
+.project-art {
+    min-height: 320px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 255, 255, 0.04);
+    position: relative;
+}
+
+.project-art i {
+    font-size: 92px;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.project-art img {
+    width: 100%;
+    height: 320px;
+    object-fit: contain;
+    padding: 18px;
+    opacity: 1;
+    filter: none;
+    transition: transform 0.55s ease, opacity 0.35s ease, filter 0.35s ease;
+}
+
+.project-art img.is-wide,
+.project-art img.is-ultrawide {
+    object-fit: cover;
+    padding: 0;
+}
+
+.project-art img.is-ultrawide {
+    object-position: center;
+}
+
+.portfolio-wrap::before {
+    content: "";
+    background:
+        radial-gradient(circle at center, rgba(255, 255, 255, 0.06), transparent 46%),
+        rgba(0, 0, 0, 0.72);
+    position: absolute;
+    inset: 18px;
+    transition: inset 0.34s ease, opacity 0.34s ease, backdrop-filter 0.34s ease;
+    z-index: 2;
+    opacity: 0;
+    backdrop-filter: blur(0);
+}
+
+.portfolio-info {
+    opacity: 0;
+    position: absolute;
+    inset: 0;
+    text-align: center;
+    z-index: 3;
+    transform: translateY(18px) scale(0.98);
+    transition: opacity 0.34s ease, transform 0.34s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 28px;
+}
+
+.portfolio-info::before,
+.portfolio-info::after {
+    content: "";
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    transition: all 0.5s ease;
+}
+
+.portfolio-info::before {
+    top: 35px;
+    left: 35px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+}
+
+.portfolio-info::after {
+    bottom: 35px;
+    right: 35px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+}
+
+.portfolio-info h4 {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.portfolio-info p {
+    text-transform: uppercase;
+    margin: 0 0 12px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 13px;
+    letter-spacing: 1px;
+}
+
+.portfolio-info a {
+    color: #fff;
+}
+
+.btn-github {
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    transition: transform 0.26s ease, background 0.26s ease, color 0.26s ease, border-color 0.26s ease, box-shadow 0.26s ease;
+    border-radius: 100px;
+    font-weight: 800;
+    place-content: center;
+    padding: 0.78rem 1.05rem;
+    font-size: 0.825rem;
+    line-height: 1rem;
+    background-color: rgba(255, 255, 255, 0.08);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.28),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    color: #fff;
+    text-decoration: none;
+    backdrop-filter: blur(8px);
+}
+
+.btn-github:hover {
+    box-shadow:
+        0 16px 36px rgba(0, 0, 0, 0.38),
+        inset 0 1px 0 rgba(255, 255, 255, 0.16);
+    border-color: rgba(252, 232, 3, 0.34);
+    color: var(--accent-hover);
+    transform: translateY(-3px);
+    background-color: rgba(0, 0, 0, 0.68);
+}
+
+.btn-github svg {
+    flex: 0 0 auto;
+}
+
+.portfolio-wrap:hover::before {
+    inset: 0;
+    opacity: 1;
+    backdrop-filter: blur(3px);
+}
+
+.portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.portfolio-wrap:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.34);
+    border-color: rgba(255, 255, 255, 0.24);
+}
+
+.portfolio-wrap:hover .project-art img {
+    transform: scale(1.025);
+    opacity: 0.72;
+    filter: blur(1px) brightness(0.72);
+}
+
+.portfolio-wrap:hover .portfolio-info::before {
+    top: 15px;
+    left: 15px;
+}
+
+.portfolio-wrap:hover .portfolio-info::after {
+    bottom: 15px;
+    right: 15px;
+}
+
+.portfolio-item.is-hidden {
+    display: none;
+}
+
+.contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact .info-box {
+    padding: 20px;
+    width: 100%;
+    background: var(--soft);
+    min-height: 104px;
+}
+
+.contact .info-box i {
+    font-size: 24px;
+    color: #fff;
+    border-radius: 50%;
+    padding: 14px;
+    float: left;
+    background: var(--accent);
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact .info-box h3 {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.56);
+    font-weight: 700;
+    margin: 6px 0 8px 68px;
+}
+
+.contact .info-box p {
+    color: #fff;
+    line-height: 24px;
+    font-size: 14px;
+    margin: 0 0 0 68px;
+}
+
+.contact-form {
+    margin-top: 24px;
+    padding: 30px;
+    background: var(--soft);
+    display: grid;
+    gap: 16px;
+}
+
+.form-row {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    font-size: 14px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 0;
+    transition: 0.3s;
+    color: #fff;
+    padding: 12px 15px;
+    font-family: inherit;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    outline: 0;
+    background: rgba(255, 255, 255, 0.11);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+    color: rgba(255, 255, 255, 0.34);
+}
+
+.contact-form button {
+    justify-self: center;
+    background: var(--accent);
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background: #fff;
+    color: var(--accent);
+}
+
+@media (max-width: 991px) {
+    #header .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    #header.header-top .container {
+        flex-direction: row;
+        text-align: left;
+    }
+
+    .mobile-nav-toggle {
+        display: block;
+    }
+
+    .navbar ul {
+        display: none;
+    }
+
+    .navbar.navbar-mobile {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.94);
+        z-index: 999;
+        margin-top: 0;
+    }
+
+    .navbar.navbar-mobile ul {
+        display: block;
+        position: absolute;
+        top: 55px;
+        right: 15px;
+        bottom: 45px;
+        left: 15px;
+        padding: 10px 0;
+        overflow-y: auto;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .navbar.navbar-mobile li {
+        padding: 12px 20px;
+    }
+
+    .navbar.navbar-mobile a {
+        font-size: 16px;
+    }
+
+    .about-grid,
+    .details-grid,
+    .skills-content,
+    .resume-grid,
+    .contact-grid,
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .interest-grid,
+    .portfolio-container {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .activity-stats {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 768px) {
+    #header.header-top {
+        height: 60px;
+    }
+
+    #header.header-top h1 {
+        font-size: 26px;
+    }
+
+    section {
+        top: 120px;
+    }
+
+    section.section-show {
+        top: 80px;
+    }
+
+    .interest-grid,
+    .portfolio-container {
+        grid-template-columns: 1fr;
+    }
+
+    section .container {
+        padding: 22px;
+    }
+
+    .activity-legend {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .activity-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .theme-toggle {
+        right: 14px;
+        bottom: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+    </style>
 </head>
 
 <body>
-    <div id="particles-js"></div>
-    <div id="light-pillar"></div>
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
+    <header id="header">
+        <div class="container">
+            <h1><a href="#header" class="home-link" data-profile="name">Madhav Swami</a></h1>
+            <h2>I'm a <span class="typing">Full Stack Developer</span> from <span data-profile="location">Bikaner</span></h2>
 
-    <nav class="navbar">
-        <a href="index.html" class="logo">EternalSwamiX</a>
-        <div class="menu-btn">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="nav-links">
-            <a href="index.html" class="nav-link active">Home</a>
-            <a href="skills.html" class="nav-link">Skills</a>
-            <a href="projects.html" class="nav-link">Projects</a>
-            <a href="about.html" class="nav-link">Resume</a>
-            <a href="contact.html" class="nav-link">Contact</a>
-        </div>
-    </nav>
+            <nav id="navbar" class="navbar">
+                <ul>
+                    <li><a class="nav-link active" href="#header">Home</a></li>
+                    <li><a class="nav-link" href="#about">About</a></li>
+                    <li><a class="nav-link" href="#resume">Resume</a></li>
+                    <li><a class="nav-link" href="#portfolio">Portfolio</a></li>
+                    <li><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <button class="mobile-nav-toggle" type="button" aria-label="Toggle navigation">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
 
-    <main>
-        <section id="home">
-            <div class="hero-content reveal">
-                <span class="section-subtitle">Hello World</span>
-                <h1>Crafting Digital<br><span>Experiences</span></h1>
-                <p class="hero-tagline">
-                    Full-Stack Developer bridging ancient wisdom with modern technology.
-                    Building scalable, meaningful, and aesthetic web solutions.
-                </p>
-                <div class="btn-group">
-                    <a href="projects.html" class="btn btn-primary">
-                        <i class="fas fa-code"></i> View Work
-                    </a>
-                    <a href="contact.html" class="btn btn-secondary">
-                        <i class="fas fa-paper-plane"></i> Let's Talk
-                    </a>
+            <div class="social-links" data-social-links>
+                <button class="theme-toggle" type="button" aria-label="Switch to light mode" title="Theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About</h2>
+                <p>Learn more about me</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="profile-frame">
+                    <img src="favicon.png" alt="Madhav Swami profile mark" data-profile-avatar>
+                </div>
+                <div class="content">
+                    <h3 data-about="subtitle">Backend Developer, Full Stack Developer &amp; API Builder</h3>
+                    <div class="details-grid" data-about-details></div>
+                    <p data-about="summary"></p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-    <script src="scripts.js"></script>
+        <div class="container logo-loop-section" aria-label="Technology stack">
+            <div class="logo-loop">
+                <div class="logo-track" data-logo-loop></div>
+            </div>
+        </div>
+
+        <div class="container skills">
+            <div class="section-title">
+                <h2>Skills</h2>
+            </div>
+            <div class="skills-content" data-skills></div>
+        </div>
+
+        <div class="container activity-card">
+            <div class="activity-header">
+                <div>
+                    <h2><i class="fas fa-wave-square"></i> Activity</h2>
+                    <p>past year</p>
+                </div>
+            </div>
+            <div class="activity-source">
+                <div class="activity-source-title">
+                    <span><i class="fab fa-github"></i> GitHub</span>
+                    <small>contributions</small>
+                </div>
+                <div class="activity-board" aria-label="GitHub yearly contribution activity heatmap">
+                    <div class="activity-heatmap" id="activityHeatmap"></div>
+                </div>
+            </div>
+            <div class="activity-source">
+                <div class="activity-source-title">
+                    <span><i class="fas fa-code"></i> LeetCode</span>
+                    <small>submissions</small>
+                </div>
+                <div class="activity-board" aria-label="LeetCode yearly submission activity heatmap">
+                    <div class="activity-heatmap leetcode-heatmap" id="leetcodeHeatmap"></div>
+                </div>
+            </div>
+            <div class="activity-legend">
+                <span>GitHub <i class="legend-box github"></i><i class="legend-box github mid"></i><i class="legend-box github high"></i></span>
+                <span>LeetCode <i class="legend-box leetcode"></i><i class="legend-box leetcode mid"></i><i class="legend-box leetcode high"></i></span>
+            </div>
+            <div class="activity-stats">
+                <div><span>GitHub Contributions</span><strong data-stat="github-contributions">Loading</strong></div>
+                <div><span>Public Repos</span><strong data-stat="github-repos">Loading</strong></div>
+                <div><span>Followers</span><strong data-stat="github-followers">Loading</strong></div>
+                <div><span>LeetCode Solved</span><strong class="purple" data-stat="leetcode-solved">Loading</strong></div>
+                <div><span>Acceptance</span><strong class="purple" data-stat="leetcode-acceptance">Loading</strong></div>
+                <div><span>Ranking</span><strong class="purple" data-stat="leetcode-ranking">Loading</strong></div>
+                <div><span>Current Streak</span><strong class="purple" data-stat="leetcode-current-streak">Loading</strong></div>
+                <div><span>Best Streak</span><strong class="purple" data-stat="leetcode-best-streak">Loading</strong></div>
+                <div><span>Active Days</span><strong class="purple" data-stat="leetcode-active-days">Loading</strong></div>
+            </div>
+        </div>
+
+        <div class="container interests">
+            <div class="section-title">
+                <h2>Interests</h2>
+            </div>
+            <div class="interest-grid" data-interests></div>
+        </div>
+    </section>
+
+    <section id="resume" class="resume">
+        <div class="container">
+            <div class="section-title">
+                <h2>Resume</h2>
+                <p>View My Resume</p>
+            </div>
+            <div class="resume-grid" data-resume></div>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio">
+        <div class="container">
+            <div class="section-title">
+                <h2>Portfolio</h2>
+                <p>My Works</p>
+            </div>
+            <ul id="portfolio-flters" data-project-filters>
+                <li data-filter="all" class="filter-active">All</li>
+            </ul>
+            <div class="portfolio-container" data-projects></div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact</h2>
+                <p>Contact Me</p>
+            </div>
+            <div class="contact-grid" data-contact></div>
+            <form class="contact-form" action="mailto:eternalswamix@gmail.com" method="post" enctype="text/plain" data-contact-form>
+                <div class="form-row">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                </div>
+                <input type="text" name="subject" placeholder="Subject" required>
+                <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                <button type="submit"><b>Send Message</b></button>
+            </form>
+        </div>
+    </section>
+
+    <script>
+(function () {
+    const select = (selector, all = false) => {
+        const result = all ? document.querySelectorAll(selector) : document.querySelector(selector);
+        return all ? Array.from(result) : result;
+    };
+
+    let siteData = null;
+    let typingWords = ['Full Stack Developer', 'Backend Developer', 'API Builder', 'Python Developer'];
+    let githubUsername = 'eternalswamix';
+    let leetcodeUsername = 'eternalswamix';
+    let wordIndex = 0;
+    let charIndex = typingWords[0].length;
+    let deleting = true;
+
+    const githubIconSvg = `
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M7.99992 1.33331C7.12444 1.33331 6.25753 1.50575 5.4487 1.84078C4.63986 2.17581 3.90493 2.66688 3.28587 3.28593C2.03563 4.53618 1.33325 6.23187 1.33325 7.99998C1.33325 10.9466 3.24659 13.4466 5.89325 14.3333C6.22659 14.3866 6.33325 14.18 6.33325 14C6.33325 13.8466 6.33325 13.4266 6.33325 12.8733C4.48659 13.2733 4.09325 11.98 4.09325 11.98C3.78659 11.2066 3.35325 11 3.35325 11C2.74659 10.5866 3.39992 10.6 3.39992 10.6C4.06659 10.6466 4.41992 11.2866 4.41992 11.2866C4.99992 12.3 5.97992 12 6.35992 11.84C6.41992 11.4066 6.59325 11.1133 6.77992 10.9466C5.29992 10.78 3.74659 10.2066 3.74659 7.66665C3.74659 6.92665 3.99992 6.33331 4.43325 5.85998C4.36659 5.69331 4.13325 4.99998 4.49992 4.09998C4.49992 4.09998 5.05992 3.91998 6.33325 4.77998C6.85992 4.63331 7.43325 4.55998 7.99992 4.55998C8.56659 4.55998 9.13992 4.63331 9.66659 4.77998C10.9399 3.91998 11.4999 4.09998 11.4999 4.09998C11.8666 4.99998 11.6333 5.69331 11.5666 5.85998C11.9999 6.33331 12.2533 6.92665 12.2533 7.66665C12.2533 10.2133 10.6933 10.7733 9.20659 10.94C9.44659 11.1466 9.66659 11.5533 9.66659 12.1733C9.66659 13.0666 9.66659 13.7866 9.66659 14C9.66659 14.18 9.77325 14.3933 10.1133 14.3333C12.7599 13.44 14.6666 10.9466 14.6666 7.99998C14.6666 7.1245 14.4941 6.25759 14.1591 5.44876C13.8241 4.63992 13.333 3.90499 12.714 3.28593C12.0949 2.66688 11.36 2.17581 10.5511 1.84078C9.7423 1.50575 8.8754 1.33331 7.99992 1.33331Z" fill="currentcolor"></path>
+        </svg>
+    `;
+
+    const setText = (selector, value) => {
+        const element = select(selector);
+        if (element) element.textContent = value || '';
+    };
+
+    const applyDesignTokens = (theme = {}) => {
+        const root = document.documentElement;
+        if (theme.accent) root.style.setProperty('--accent', theme.accent);
+        if (theme.accentHover) root.style.setProperty('--accent-hover', theme.accentHover);
+    };
+
+    const applyTheme = (theme) => {
+        document.body.dataset.theme = theme;
+        const toggle = select('.theme-toggle');
+        if (!toggle) return;
+
+        const isLight = theme === 'light';
+        toggle.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        toggle.innerHTML = isLight ? '<i class="fas fa-sun"></i>' : '<i class="fas fa-moon"></i>';
+    };
+
+    const initThemeToggle = () => {
+        const savedTheme = localStorage.getItem('portfolio-theme') || 'dark';
+        applyTheme(savedTheme);
+
+        select('.theme-toggle')?.addEventListener('click', () => {
+            const nextTheme = document.body.dataset.theme === 'light' ? 'dark' : 'light';
+            localStorage.setItem('portfolio-theme', nextTheme);
+            applyTheme(nextTheme);
+        });
+    };
+
+    const renderProfile = (data) => {
+        const profile = data.profile || {};
+        typingWords = profile.taglineRoles?.length ? profile.taglineRoles : typingWords;
+        githubUsername = data.activity?.githubUsername || githubUsername;
+        leetcodeUsername = data.activity?.leetcodeUsername || leetcodeUsername;
+
+        setText('[data-profile="name"]', profile.name);
+        setText('[data-profile="location"]', profile.location);
+        document.title = `${profile.name || 'Portfolio'} | ${profile.brand || profile.role || ''}`;
+
+        const avatar = select('[data-profile-avatar]');
+        if (avatar && profile.avatar) {
+            avatar.src = profile.avatar;
+            avatar.alt = `${profile.name} profile mark`;
+        }
+
+        const socials = select('[data-social-links]');
+        const toggle = select('.theme-toggle');
+        if (socials) {
+            socials.innerHTML = '';
+            (profile.socials || []).forEach((social) => {
+                const link = document.createElement('a');
+                link.href = social.url;
+                link.setAttribute('aria-label', social.label);
+                if (!social.url.startsWith('mailto:')) {
+                    link.target = '_blank';
+                    link.rel = 'noopener noreferrer';
+                }
+                link.innerHTML = `<i class="${social.icon}"></i>`;
+                socials.appendChild(link);
+            });
+            if (toggle) socials.appendChild(toggle);
+        }
+    };
+
+    const renderAbout = (data) => {
+        const about = data.about || {};
+        setText('[data-about="subtitle"]', about.subtitle);
+        setText('[data-about="summary"]', about.summary);
+
+        const details = select('[data-about-details]');
+        if (details) {
+            const midpoint = Math.ceil((about.details || []).length / 2);
+            details.innerHTML = [about.details?.slice(0, midpoint), about.details?.slice(midpoint)]
+                .map((group) => `
+                    <ul>
+                        ${(group || []).map((item) => `
+                            <li><i class="fas fa-chevron-right"></i> <strong>${item.label}:</strong> <span>${item.value}</span></li>
+                        `).join('')}
+                    </ul>
+                `).join('');
+        }
+    };
+
+    const renderLogoLoop = (items) => {
+        const track = select('[data-logo-loop]');
+        if (!track) return;
+        const doubled = [...(items || []), ...(items || [])];
+        track.innerHTML = doubled.map((item) => `<span><i class="${item.icon}"></i> ${item.label}</span>`).join('');
+    };
+
+    const renderSkills = (skills) => {
+        const container = select('[data-skills]');
+        if (!container) return;
+        container.innerHTML = (skills || []).map((skill) => `
+            <div class="progress">
+                <span class="skill">${skill.name} <i class="val">${skill.level}%</i></span>
+                <div class="progress-bar-wrap"><div class="progress-bar" data-width="${skill.level}"></div></div>
+            </div>
+        `).join('');
+    };
+
+    const renderInterests = (interests) => {
+        const container = select('[data-interests]');
+        if (!container) return;
+        container.innerHTML = (interests || []).map((interest) => `
+            <div class="icon-box">
+                <i class="${interest.icon}" style="color:${interest.color}"></i>
+                <h3>${interest.title}</h3>
+            </div>
+        `).join('');
+    };
+
+    const renderResume = (resume) => {
+        const container = select('[data-resume]');
+        if (!container || !resume) return;
+        const summaryItems = (resume.summary?.items || []).map((item) => `<li>${item}</li>`).join('');
+        const experience = (resume.experience || []).map((item) => `
+            <div class="resume-item">
+                <h4>${item.title}</h4>
+                <h5>${item.period}</h5>
+                ${item.company ? `<p><em>${item.company}</em></p>` : ''}
+                <ul>${(item.items || []).map((point) => `<li>${point}</li>`).join('')}</ul>
+            </div>
+        `).join('');
+
+        container.innerHTML = `
+            <div>
+                <h3 class="resume-title">Summary</h3>
+                <div class="resume-item">
+                    <h4>${resume.summary?.title || ''}</h4>
+                    <p><em>${resume.summary?.text || ''}</em></p>
+                    <ul>${summaryItems}</ul>
+                </div>
+                <h3 class="resume-title">Focus</h3>
+                <div class="resume-item">
+                    <h4>${resume.focus?.title || ''}</h4>
+                    <h5>${resume.focus?.period || ''}</h5>
+                    <p>${resume.focus?.text || ''}</p>
+                </div>
+            </div>
+            <div>
+                <h3 class="resume-title">Professional Experience</h3>
+                ${experience}
+            </div>
+        `;
+    };
+
+    const renderProjects = (projects) => {
+        const filters = select('[data-project-filters]');
+        const container = select('[data-projects]');
+        if (!filters || !container) return;
+
+        const categories = [...new Set((projects || []).map((project) => project.category).filter(Boolean))];
+        filters.innerHTML = `
+            <li data-filter="all" class="filter-active">All</li>
+            ${categories.map((category) => `<li data-filter="${category}">${category}</li>`).join('')}
+        `;
+
+        container.innerHTML = (projects || []).map((project) => `
+            <article class="portfolio-item" data-category="${project.category}">
+                <div class="portfolio-wrap">
+                    <div class="project-art">
+                        ${project.image ? `<img src="${project.image}" alt="${project.title}" loading="lazy" data-project-image>` : `<i class="${project.icon || 'fas fa-code'}"></i>`}
+                    </div>
+                    <div class="portfolio-info">
+                        <h4>${project.title}</h4>
+                        <p>${project.tagline}</p>
+                        <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn-github" aria-label="View ${project.title} on GitHub">
+                            ${githubIconSvg}
+                            <span>View on Github</span>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        `).join('');
+
+        select('[data-project-image]', true).forEach((image) => {
+            const setRatioClass = () => {
+                if (!image.naturalWidth || !image.naturalHeight) return;
+                const ratio = image.naturalWidth / image.naturalHeight;
+                image.classList.toggle('is-ultrawide', ratio >= 2.8);
+                image.classList.toggle('is-wide', ratio >= 1.7 && ratio < 2.8);
+            };
+
+            if (image.complete && image.naturalWidth) setRatioClass();
+            else image.addEventListener('load', setRatioClass, { once: true });
+        });
+    };
+
+    const renderContact = (data) => {
+        const container = select('[data-contact]');
+        if (!container) return;
+        container.innerHTML = (data.contact || []).map((item) => `
+            <div class="info-box">
+                <i class="${item.icon}"></i>
+                <h3>${item.title}</h3>
+                <p>${item.value}</p>
+            </div>
+        `).join('');
+
+        const form = select('[data-contact-form]');
+        if (form && data.profile?.email) {
+            form.action = `mailto:${data.profile.email}`;
+        }
+    };
+
+    const renderSite = (data) => {
+        applyDesignTokens(data.theme);
+        renderProfile(data);
+        renderAbout(data);
+        renderLogoLoop(data.logoLoop);
+        renderSkills(data.skills);
+        renderInterests(data.interests);
+        renderResume(data.resume);
+        renderProjects(data.projects);
+        renderContact(data);
+    };
+
+    const loadSiteData = async () => {
+        const response = await fetch('portfolio-data.json', { cache: 'no-store' });
+        if (!response.ok) throw new Error('portfolio-data.json fetch failed');
+        siteData = await response.json();
+        renderSite(siteData);
+    };
+
+    const setStat = (name, value, failed = false) => {
+        const stat = select(`[data-stat="${name}"]`);
+        if (!stat) return;
+        stat.textContent = value;
+        stat.classList.toggle('is-unavailable', failed);
+    };
+
+    const normalizeGithubContributions = (data) => {
+        if (!data) return [];
+        if (Array.isArray(data.contributions)) return data.contributions;
+        if (Array.isArray(data.contributionCalendar)) return data.contributionCalendar;
+        if (data.contributions && Array.isArray(data.contributions.days)) return data.contributions.days;
+        return [];
+    };
+
+    const renderGithubHeatmap = (contributions) => {
+        const heatmap = select('#activityHeatmap');
+        if (!heatmap) return;
+
+        const totalCells = 53 * 7;
+        const days = contributions.slice(-totalCells);
+        heatmap.innerHTML = '';
+
+        for (let index = 0; index < totalCells; index += 1) {
+            const cell = document.createElement('span');
+            const day = days[index];
+            const count = Number(day?.count ?? day?.contributionCount ?? 0);
+            const level = Number(day?.level ?? Math.min(3, Math.ceil(count / 4)));
+            const date = day?.date ? `${day.date}: ` : '';
+            cell.className = `activity-cell ${count > 0 ? `github-${Math.max(1, Math.min(3, level))}` : ''}`.trim();
+            cell.title = `${date}${count} GitHub contribution${count === 1 ? '' : 's'}`;
+            heatmap.appendChild(cell);
+        }
+    };
+
+    const normalizeLeetcodeCalendar = (data) => {
+        const rawCalendar = data?.submissionCalendar || data?.matchedUser?.submissionCalendar || data?.calendar;
+        let calendar = rawCalendar;
+
+        if (typeof rawCalendar === 'string') {
+            try {
+                calendar = JSON.parse(rawCalendar);
+            } catch (error) {
+                calendar = {};
+            }
+        }
+
+        if (!calendar || typeof calendar !== 'object') return [];
+
+        return Object.entries(calendar)
+            .map(([timestamp, count]) => {
+                const date = new Date(Number(timestamp) * 1000);
+                return {
+                    date: date.toISOString().slice(0, 10),
+                    count: Number(count) || 0
+                };
+            })
+            .sort((a, b) => a.date.localeCompare(b.date));
+    };
+
+    const fillYearDays = (activityDays) => {
+        const byDate = new Map(activityDays.map((day) => [day.date, day.count]));
+        const days = [];
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const start = new Date(today);
+        start.setDate(start.getDate() - (53 * 7 - 1));
+
+        for (let index = 0; index < 53 * 7; index += 1) {
+            const date = new Date(start);
+            date.setDate(start.getDate() + index);
+            const key = date.toISOString().slice(0, 10);
+            days.push({ date: key, count: byDate.get(key) || 0 });
+        }
+
+        return days;
+    };
+
+    const calculateStreaks = (days) => {
+        let best = 0;
+        let currentRun = 0;
+
+        days.forEach((day) => {
+            if (day.count > 0) {
+                currentRun += 1;
+                best = Math.max(best, currentRun);
+            } else {
+                currentRun = 0;
+            }
+        });
+
+        let current = 0;
+        for (let index = days.length - 1; index >= 0; index -= 1) {
+            if (days[index].count > 0) current += 1;
+            else break;
+        }
+
+        return {
+            current,
+            best,
+            activeDays: days.filter((day) => day.count > 0).length
+        };
+    };
+
+    const renderLeetcodeHeatmap = (activityDays) => {
+        const heatmap = select('#leetcodeHeatmap');
+        if (!heatmap) return;
+
+        const days = fillYearDays(activityDays);
+        heatmap.innerHTML = '';
+
+        days.forEach((day) => {
+            const cell = document.createElement('span');
+            let level = 0;
+            if (day.count >= 6) level = 3;
+            else if (day.count >= 3) level = 2;
+            else if (day.count >= 1) level = 1;
+
+            cell.className = `activity-cell ${level ? `leetcode-${level}` : ''}`.trim();
+            cell.title = `${day.date}: ${day.count} LeetCode submission${day.count === 1 ? '' : 's'}`;
+            heatmap.appendChild(cell);
+        });
+
+        return calculateStreaks(days);
+    };
+
+    const loadGithubActivity = async () => {
+        try {
+            const [profileResponse, contributionResponse] = await Promise.all([
+                fetch(`https://api.github.com/users/${githubUsername}`),
+                fetch(`https://github-contributions-api.jogruber.de/v4/${githubUsername}?y=last`)
+            ]);
+
+            if (!profileResponse.ok) throw new Error('GitHub profile fetch failed');
+            const profile = await profileResponse.json();
+            setStat('github-repos', String(profile.public_repos ?? 'Unavailable'));
+            setStat('github-followers', String(profile.followers ?? 'Unavailable'));
+
+            if (!contributionResponse.ok) throw new Error('GitHub contribution fetch failed');
+            const contributionData = await contributionResponse.json();
+            const contributions = normalizeGithubContributions(contributionData);
+            const total = contributions.reduce((sum, day) => sum + Number(day?.count ?? day?.contributionCount ?? 0), 0);
+            setStat('github-contributions', String(total));
+            renderGithubHeatmap(contributions);
+        } catch (error) {
+            console.error(error);
+            setStat('github-contributions', 'Unavailable', true);
+            setStat('github-repos', 'Unavailable', true);
+            setStat('github-followers', 'Unavailable', true);
+            renderGithubHeatmap([]);
+        }
+    };
+
+   const LEETCODE_API_BASE = 'https://leetcode-api-pied.vercel.app';
+
+const fetchJson = async (url, timeoutMs = 12000) => {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), timeoutMs);
+
+    try {
+        const response = await fetch(url, {
+            signal: controller.signal,
+            headers: {
+                Accept: 'application/json'
+            }
+        });
+
+        const text = await response.text();
+
+        if (!response.ok) {
+            throw new Error(`Request failed ${response.status}: ${text || response.statusText}`);
+        }
+
+        try {
+            return JSON.parse(text);
+        } catch {
+            throw new Error('Invalid JSON response');
+        }
+    } finally {
+        clearTimeout(timeoutId);
+    }
+};
+
+const toNumber = (value) => {
+    const number = Number(value);
+    return Number.isFinite(number) ? number : null;
+};
+
+const findDifficultyStat = (items, difficulty = 'All') => {
+    if (!Array.isArray(items)) return null;
+
+    return (
+        items.find(
+            (item) =>
+                String(item?.difficulty || '').toLowerCase() ===
+                difficulty.toLowerCase()
+        ) || null
+    );
+};
+
+const formatPercent = (value) => {
+    const number = Number(value);
+    if (!Number.isFinite(number)) return 'Unavailable';
+
+    return `${number.toFixed(1).replace(/\.0$/, '')}%`;
+};
+
+const getLeetcodeTotalSolved = (data) => {
+    const direct = toNumber(
+        data?.totalSolved ??
+        data?.solvedProblem ??
+        data?.totalSolvedProblems
+    );
+
+    if (direct !== null) return direct;
+
+    return toNumber(
+        findDifficultyStat(data?.submitStats?.acSubmissionNum, 'All')?.count ??
+        findDifficultyStat(data?.matchedUser?.submitStatsGlobal?.acSubmissionNum, 'All')?.count
+    );
+};
+
+const getLeetcodeAcceptanceRate = (data) => {
+    const direct = toNumber(data?.acceptanceRate ?? data?.acceptance_rate);
+
+    if (direct !== null) {
+        return formatPercent(direct);
+    }
+
+    const acceptedSubmissions = toNumber(
+        findDifficultyStat(data?.submitStats?.acSubmissionNum, 'All')?.submissions
+    );
+
+    const totalSubmissions = toNumber(
+        findDifficultyStat(data?.submitStats?.totalSubmissionNum, 'All')?.submissions
+    );
+
+    if (acceptedSubmissions !== null && totalSubmissions > 0) {
+        return formatPercent((acceptedSubmissions / totalSubmissions) * 100);
+    }
+
+    return 'Unavailable';
+};
+
+const getLeetcodeRanking = (data) => {
+    const ranking = toNumber(
+        data?.ranking ??
+        data?.profile?.ranking ??
+        data?.matchedUser?.profile?.ranking
+    );
+
+    return ranking !== null ? `#${ranking}` : 'Unavailable';
+};
+
+const normalizeLeetcodeDate = (rawDate) => {
+    if (rawDate === null || rawDate === undefined || rawDate === '') {
+        return null;
+    }
+
+    const value = String(rawDate);
+
+    if (/^\d+$/.test(value)) {
+        const timestamp = Number(value);
+        const date = new Date(timestamp > 1e12 ? timestamp : timestamp * 1000);
+
+        return Number.isNaN(date.getTime())
+            ? null
+            : date.toISOString().slice(0, 10);
+    }
+
+    const date = new Date(rawDate);
+
+    return Number.isNaN(date.getTime())
+        ? null
+        : date.toISOString().slice(0, 10);
+};
+
+const normalizeLeetcodeCalendarFromAnyApi = (calendarData) => {
+    let calendar =
+        calendarData?.submissionCalendar ??
+        calendarData?.userCalendar?.submissionCalendar ??
+        calendarData?.matchedUser?.userCalendar?.submissionCalendar ??
+        calendarData?.data?.matchedUser?.userCalendar?.submissionCalendar ??
+        calendarData?.calendar ??
+        calendarData?.heatmap ??
+        calendarData;
+
+    if (!calendar) return [];
+
+    if (typeof calendar === 'string') {
+        try {
+            calendar = JSON.parse(calendar);
+        } catch {
+            return [];
+        }
+    }
+
+    if (Array.isArray(calendar)) {
+        return calendar
+            .map((item) => {
+                if (!item || typeof item !== 'object') return null;
+
+                const date = normalizeLeetcodeDate(
+                    item.date ??
+                    item.day ??
+                    item.timestamp ??
+                    item.time ??
+                    item.submissionDate ??
+                    item[0]
+                );
+
+                const count = toNumber(
+                    item.count ??
+                    item.value ??
+                    item.submissions ??
+                    item.submissionCount ??
+                    item[1]
+                ) ?? 0;
+
+                return { date, count };
+            })
+            .filter((day) => day?.date && day.count > 0)
+            .sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    if (typeof calendar === 'object') {
+        return Object.entries(calendar)
+            .map(([key, value]) => {
+                const date = normalizeLeetcodeDate(key);
+
+                const count = toNumber(
+                    value && typeof value === 'object'
+                        ? value.count ?? value.value ?? value.submissions ?? value.submissionCount
+                        : value
+                ) ?? 0;
+
+                return { date, count };
+            })
+            .filter((day) => day.date && day.count > 0)
+            .sort((a, b) => a.date.localeCompare(b.date));
+    }
+
+    return [];
+};
+
+const setLeetcodeStatsUnavailable = () => {
+    setStat('leetcode-solved', 'Unavailable', true);
+    setStat('leetcode-acceptance', 'Unavailable', true);
+    setStat('leetcode-ranking', 'Unavailable', true);
+};
+
+const setLeetcodeCalendarUnavailable = () => {
+    setStat('leetcode-current-streak', 'Unavailable', true);
+    setStat('leetcode-best-streak', 'Unavailable', true);
+    setStat('leetcode-active-days', 'Unavailable', true);
+    renderLeetcodeHeatmap([]);
+};
+
+const loadLeetcodeActivity = async () => {
+    const username = String(leetcodeUsername || '').trim();
+
+    if (!username) {
+        setLeetcodeStatsUnavailable();
+        setLeetcodeCalendarUnavailable();
+        return;
+    }
+
+    const encodedUsername = encodeURIComponent(username);
+
+    const [profileResult, calendarResult] = await Promise.allSettled([
+        fetchJson(`${LEETCODE_API_BASE}/user/${encodedUsername}`),
+        fetchJson(`${LEETCODE_API_BASE}/user/${encodedUsername}/calendar`)
+    ]);
+
+    if (profileResult.status === 'fulfilled') {
+        const data = profileResult.value;
+
+        const totalSolved = getLeetcodeTotalSolved(data);
+        const acceptanceRate = getLeetcodeAcceptanceRate(data);
+        const ranking = getLeetcodeRanking(data);
+
+        setStat(
+            'leetcode-solved',
+            totalSolved !== null ? String(totalSolved) : 'Unavailable',
+            totalSolved === null
+        );
+
+        setStat(
+            'leetcode-acceptance',
+            acceptanceRate,
+            acceptanceRate === 'Unavailable'
+        );
+
+        setStat(
+            'leetcode-ranking',
+            ranking,
+            ranking === 'Unavailable'
+        );
+    } else {
+        console.error('LeetCode profile fetch failed:', profileResult.reason);
+        setLeetcodeStatsUnavailable();
+    }
+
+    if (calendarResult.status === 'fulfilled') {
+        const calendarData = calendarResult.value;
+        const activityDays = normalizeLeetcodeCalendarFromAnyApi(calendarData);
+        const streaks = renderLeetcodeHeatmap(activityDays);
+
+        if (streaks) {
+            setStat(
+                'leetcode-current-streak',
+                `${streaks.current} day${streaks.current === 1 ? '' : 's'}`
+            );
+
+            setStat(
+                'leetcode-best-streak',
+                `${streaks.best} day${streaks.best === 1 ? '' : 's'}`
+            );
+
+            setStat('leetcode-active-days', String(streaks.activeDays));
+        } else {
+            setLeetcodeCalendarUnavailable();
+        }
+    } else {
+        console.error('LeetCode calendar fetch failed:', calendarResult.reason);
+        setLeetcodeCalendarUnavailable();
+    }
+};
+
+    const initActivityHeatmap = () => {
+        renderGithubHeatmap([]);
+        renderLeetcodeHeatmap([]);
+        loadGithubActivity();
+        loadLeetcodeActivity();
+    };
+
+    const showSection = (hash) => {
+        const header = select('#header');
+        if (!header) return;
+        const sections = select('section', true);
+        const navLinks = select('#navbar .nav-link', true);
+
+        navLinks.forEach((link) => {
+            link.classList.toggle('active', link.getAttribute('href') === hash);
+        });
+
+        if (hash === '#header') {
+            header.classList.remove('header-top');
+            sections.forEach((section) => section.classList.remove('section-show'));
+            return;
+        }
+
+        const section = select(hash);
+        if (!section) return;
+
+        const reveal = () => {
+            sections.forEach((item) => item.classList.remove('section-show'));
+            section.classList.add('section-show');
+            animateSkillBars();
+        };
+
+        if (!header.classList.contains('header-top')) {
+            header.classList.add('header-top');
+            window.setTimeout(reveal, 350);
+        } else {
+            reveal();
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    const animateSkillBars = () => {
+        select('.progress-bar', true).forEach((bar) => {
+            const width = bar.dataset.width || '0';
+            window.setTimeout(() => {
+                bar.style.width = `${width}%`;
+            }, 100);
+        });
+    };
+
+    const bindNavigation = () => {
+        const navbar = select('#navbar');
+        const mobileToggle = select('.mobile-nav-toggle');
+
+        select('#navbar .nav-link', true).forEach((link) => {
+            link.addEventListener('click', (event) => {
+                const hash = link.getAttribute('href');
+                if (!hash || !hash.startsWith('#')) return;
+                event.preventDefault();
+
+                if (navbar && navbar.classList.contains('navbar-mobile')) {
+                    navbar.classList.remove('navbar-mobile');
+                    const icon = mobileToggle.querySelector('i');
+                    icon.className = 'fas fa-bars';
+                }
+
+                history.replaceState(null, '', hash);
+                showSection(hash);
+            });
+        });
+
+        select('.home-link')?.addEventListener('click', (event) => {
+            event.preventDefault();
+            history.replaceState(null, '', '#header');
+            showSection('#header');
+        });
+
+        mobileToggle?.addEventListener('click', () => {
+            navbar.classList.toggle('navbar-mobile');
+            const icon = mobileToggle.querySelector('i');
+            icon.className = navbar.classList.contains('navbar-mobile') ? 'fas fa-times' : 'fas fa-bars';
+        });
+    };
+
+    const bindProjectFilters = () => {
+        select('#portfolio-flters li', true).forEach((filter) => {
+            filter.addEventListener('click', () => {
+                const selected = filter.dataset.filter;
+                select('#portfolio-flters li', true).forEach((item) => item.classList.remove('filter-active'));
+                filter.classList.add('filter-active');
+
+                select('.portfolio-item', true).forEach((item) => {
+                    const visible = selected === 'all' || item.dataset.category === selected;
+                    item.classList.toggle('is-hidden', !visible);
+                });
+            });
+        });
+    };
+
+    const typeLoop = () => {
+        const typing = select('.typing');
+        if (!typing) return;
+        const current = typingWords[wordIndex];
+
+        if (deleting) {
+            charIndex -= 1;
+            if (charIndex <= 0) {
+                deleting = false;
+                wordIndex = (wordIndex + 1) % typingWords.length;
+            }
+        } else {
+            charIndex += 1;
+            if (charIndex >= typingWords[wordIndex].length) {
+                deleting = true;
+                window.setTimeout(typeLoop, 1200);
+                typing.textContent = typingWords[wordIndex];
+                return;
+            }
+        }
+
+        typing.textContent = current.slice(0, Math.max(charIndex, 0));
+        window.setTimeout(typeLoop, deleting ? 55 : 85);
+    };
+
+    window.addEventListener('load', async () => {
+        initThemeToggle();
+        try {
+            await loadSiteData();
+        } catch (error) {
+            console.error(error);
+        }
+        bindNavigation();
+        bindProjectFilters();
+        initActivityHeatmap();
+        if (window.location.hash && window.location.hash !== '#header') {
+            showSection(window.location.hash);
+        }
+        animateSkillBars();
+        window.setTimeout(typeLoop, 900);
+    });
+})();
+
+    </script>
 </body>
 
 </html>
+
+
+
